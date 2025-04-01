@@ -144,7 +144,7 @@ T0E =
 [ 0, 0, 0,                      1]
 
 ```
-I used the MATLAB ( Symbolic Math Toolbox  Version 24.1  (R2024a) ) to derive the forward kinematics solution and verified the manual calculations with MATLAB, confirming that they are correct.  
+I used the MATLAB ( Symbolic Math Toolbox  Version 24.1  (R2024a) ) to derive the forward kinematics solution and verified the manual calculations with MATLAB, confirming that they are correct.[code](Matlab/ForwardKinematics.m)
 
 Projection of {6} on {0} is matching
 
