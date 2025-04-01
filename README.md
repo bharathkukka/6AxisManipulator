@@ -14,7 +14,7 @@ In this repository, you will see everything that I have completed to date, inclu
 - [Position Vector](#position-vector)
 - [Normal Vector (XN Axis)](#normal-vector-xn-axis)
 - [Sliding Vector (YN Axis)](#sliding-vector-yn-axis)
-- [Approach Vector (ZN Axis)](#approach-vector-zn-axis)
+- [Approach Vector (ZN Axis)](#Approach-Vector-ZN-Axis)
 
 ## *Linear Diagram*
 
