@@ -12,10 +12,7 @@ In this repository, you will see everything that I have completed to date, inclu
 -  [Visualization of the Co-ordinate frames](#Visualization-of-the-Co-ordinate-Frames)
 - [Transformation Matrices](#transformation-matrices)
 - [Arm Matrix](#arm-matrix-t0e)
-- [Position Vector](#Position-Vector)
-- [Normal Vector (XN Axis)](#normal-vector-xn-axis)
-- [Sliding Vector (YN Axis)](#sliding-vector-yn-axis)
-- [Approach Vector (ZN Axis)](#approach-vector-zn-axis)
+- [Position & Orientation Vectors](#Position-Vector)
 - [Home Position](#Home-Position)
 
 ## *Linear Diagram*
