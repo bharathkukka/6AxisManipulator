@@ -8,7 +8,7 @@ Welcome to my 6-Axis Manipulator project! This is an in-depth analysis of how to
 In this repository, you will see everything that I have completed to date, including significant notes, drawings, and technical information provided in the Notes & Basics folder. The intention is to leave a well-documented path for others interested in learning about the design of a 6-axis robotic manipulator.
 ## **Table of Contents**
 - [Linear Diagram](#linear-diagram)
-- [DH Table](#denavit-hartenberg-dh-parameters)
+- [DH Table](#Denavit-Hartenberg)
 - [Transformation Matrices](#transformation-matrices)
 - [Arm Matrix](#arm-matrix-t0e)
 - [Position Vector](#position-vector)
