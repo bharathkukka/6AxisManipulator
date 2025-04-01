@@ -13,10 +13,8 @@ In this repository, you will see everything that I have completed to date, inclu
 - [Arm Matrix](#arm-matrix-t0e)
 - [Position Vector](#Position-Vector)
 - [Normal Vector (XN Axis)](#normal-vector-xn-axis)
-
 - [Sliding Vector (YN Axis)](#sliding-vector-yn-axis)
-- [Approach Vector (ZN Axis)](#approach-vector-zn-axis
-)
+- [Approach Vector (ZN Axis)](#approach-vector-zn-axis)
 
 ## *Linear Diagram*
 
