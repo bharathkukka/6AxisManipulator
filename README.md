@@ -15,6 +15,7 @@ In this repository, you will see everything that I have completed to date, inclu
 - [Normal Vector (XN Axis)](#normal-vector-xn-axis)
 - [Sliding Vector (YN Axis)](#sliding-vector-yn-axis)
 - [Approach Vector (ZN Axis)](#approach-vector-zn-axis)
+- [Home Position](#Home-Position)
 
 ## *Linear Diagram*
 
@@ -128,7 +129,47 @@ cos(th2 + th3 + th4)*cos(th5)*sin(th1) - cos(th1)*sin(th5)
 
 
 ```
+### ***Home Position***
 
+The home position of the manipulator is when th1 =0; th2=0; th3=0; th4=0; th5=0; th6=0;
 
+T0E =
+```
+[ 0, 0, 1, a1 + a2 + a3 + a4 + d3]
+[ 0, 1, 0,                      0]
+[-1, 0, 0,                d1 - d2]
+[ 0, 0, 0,                      1]
 
+```
+I used the MATLAB Symbolic Toolbox to derive the forward kinematics solution and verified the manual calculations with MATLAB, confirming that they are correct.  
+
+Projection of {6} on {0} is matching
+
+P =
+ ```
+a1 + a2 + a3 + a4 + d3
+                     0
+               d1 - d2
+```
+n =
+ ```
+ 0
+ 0
+-1
+ ```
+ 
+s =
+``` 
+0
+1
+0
+ ```
+ 
+a =
+``` 
+1
+0
+0
+```
+ 
 
