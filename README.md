@@ -19,6 +19,7 @@ In this repository, you will see everything that I have completed to date, inclu
 ## *Linear Diagram*
 
 
+![Free body Diagram](LinearDiagram.jpeg)
 
 
 
