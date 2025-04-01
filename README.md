@@ -20,8 +20,8 @@ In this repository, you will see everything that I have completed to date, inclu
 
 
 ![Free body Diagram](Data/LinearDiagram.jpeg)
-
-
+  ## *Projection of {6} on {0}*
+![Position](Data/ProjectionBE.jpeg)
 
 
 # **Denavit-Hartenberg**(DH) parameters
