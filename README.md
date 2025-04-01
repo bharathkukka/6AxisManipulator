@@ -36,7 +36,7 @@ In this repository, you will see everything that I have completed to date, inclu
 
 ------
 ## **Visualization of the Co-ordinate Frames**
-I used MATLAB (Robotics System Toolbox, Version 24.1, R2024a) to visualize the coordinate frames. This helped me view the joint axes in 3D and verify the correctness of my DH parameters.
+I used MATLAB (Robotics System Toolbox, Version 24.1, R2024a) to visualize the coordinate frames. This helped me view the joint axes in 3D and verify the correctness of my DH parameters. [code](Matlab/Visualisation-Co-ordinate-Frame.m)
 
 ![Data/Visualization.png](Data/Visualization.png)
 ----
