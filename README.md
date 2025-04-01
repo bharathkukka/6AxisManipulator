@@ -6,7 +6,7 @@
 Welcome to my 6-Axis Manipulator project! This is an in-depth analysis of how to build a robotic manipulator from the ground up. I began this project from scratch with emphasis on every part of designing, constructing, and programming the manipulator.  
 
 In this repository, you will see everything that I have completed to date, including significant notes, drawings, and technical information provided in the Notes & Basics folder. The intention is to leave a well-documented path for others interested in learning about the design of a 6-axis robotic manipulator.  
-This project is extension of my previous project ![4-Axis Manipulator](#https://github.com/bhaarath22/4AxisManipulator.git)
+This project is extension of my previous project ![4-Axis Manipulator](https://github.com/bhaarath22/4AxisManipulator.git)
 ## **Table of Contents**
 - [Linear Diagram](#linear-diagram)
 - [DH Table](#Denavit-HartenbergDH-parameters)
