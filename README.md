@@ -36,7 +36,12 @@ In this repository, you will see everything that I have completed to date, inclu
 | a<sub>4</sub>    | 3π/2            | d<sub>2</sub>     | θ<sub>5</sub> + 3π/2 |
 | 0                | 3π/2            | d<sub>3</sub>     | θ<sub>6</sub> + 3π/2 |
 
+------
+## **Visualization of the Co-ordinate Frames**
+I used MATLAB (Robotics System Toolbox, Version 24.1, R2024a) to visualize the coordinate frames. This helped me view the joint axes in 3D and verify the correctness of my DH parameters.
 
+![Data/Visualization.png](Data/Visualization.png)
+----
 ## Transformation Matrices
 
 ### T<sub>01</sub>
@@ -141,7 +146,7 @@ T0E =
 [ 0, 0, 0,                      1]
 
 ```
-I used the MATLAB Symbolic Toolbox to derive the forward kinematics solution and verified the manual calculations with MATLAB, confirming that they are correct.  
+I used the MATLAB ( Symbolic Math Toolbox  Version 24.1  (R2024a) ) to derive the forward kinematics solution and verified the manual calculations with MATLAB, confirming that they are correct.  
 
 Projection of {6} on {0} is matching
 
