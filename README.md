@@ -12,4 +12,84 @@
 | 0                | 3π/2            | d<sub>3</sub>     | θ<sub>6</sub> + 3π/2 |
 
 
+## Transformation Matrices
+
+### T<sub>01</sub>
+```
+[cos(th1), -sin(th1), 0,  0]
+[sin(th1),  cos(th1), 0,  0]
+[       0,         0, 1, d1]
+[       0,         0, 0,  1]
+```
+
+### T<sub>12</sub>
+```
+[ cos(th2), -sin(th2), 0, a1]
+[        0,         0, 1,  0]
+[-sin(th2), -cos(th2), 0,  0]
+[        0,         0, 0,  1]
+```
+
+### T<sub>23</sub>
+```
+[cos(th3), -sin(th3), 0, a2]
+[sin(th3),  cos(th3), 0,  0]
+[       0,         0, 1,  0]
+[       0,         0, 0,  1]
+```
+
+### T<sub>34</sub>
+```
+[cos(th4), -sin(th4), 0, a3]
+[sin(th4),  cos(th4), 0,  0]
+[       0,         0, 1,  0]
+[       0,         0, 0,  1]
+```
+
+### T<sub>45</sub>
+```
+[ cos(th5 + 3π/2), -sin(th5 + 3π/2), 0, a4]
+[                   0,                    0, 1, d2]
+[-sin(th5 + 3π/2), -cos(th5 + 3π/2), 0,  0]
+[                   0,                    0, 0,  1]
+```
+
+### T<sub>56</sub>
+```
+[ cos(th6 + 3π/2), -sin(th6 + 3π/2), 0,  0]
+[                   0,                    0, 1, d3]
+[-sin(th6 + 3π/2), -cos(th6 + 3π/2), 0,  0]
+[                   0,                    0, 0,  1]
+```
+
+## Arm Matrix (T<sub>0E</sub>)
+```
+T0E = 
+[cos(th2 + th3 + th4)*cos(th1)*sin(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th1)*cos(th6) - cos(th5)*sin(th1)*sin(th6), ...]
+```
+
+## Position Vector (P)
+```
+d3*(sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5)) + cos(th1)*(a1 + a3*cos(th2 + th3) + a2*cos(th2) + ...)
+```
+
+## Orientation Vectors
+
+### Normal Vector (n)
+```
+[cos(th2 + th3 + th4)*cos(th1)*sin(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th1)*cos(th6) - cos(th5)*sin(th1)*sin(th6)]
+```
+
+### Sliding Vector (s)
+```
+[sin(th2 + th3 + th4)*cos(th1)*sin(th6) - cos(th5)*cos(th6)*sin(th1) + cos(th2 + th3 + th4)*cos(th1)*cos(th6)*sin(th5)]
+```
+
+### Approach Vector (a)
+```
+[sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5)]
+```
+
+This document provides all necessary matrices for kinematic analysis of the robotic system.
+
 
