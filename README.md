@@ -1,6 +1,29 @@
-# *6-AxisManipulator*
+# *6-Axis Manipulator Project*
 
-# Denavit-Hartenberg (DH) parameters
+*Timeline: February 2025 - Present*
+## **Project Overview**
+
+Welcome to my 6-Axis Manipulator project! This is an in-depth analysis of how to build a robotic manipulator from the ground up. I began this project from scratch with emphasis on every part of designing, constructing, and programming the manipulator.  
+
+In this repository, you will see everything that I have completed to date, including significant notes, drawings, and technical information provided in the Notes & Basics folder. The intention is to leave a well-documented path for others interested in learning about the design of a 6-axis robotic manipulator.
+## **Table of Contents**
+- [Linear Diagram](#linear-diagram)
+- [DH Table](#denavit-hartenberg-dh-parameters)
+- [Transformation Matrices](#transformation-matrices)
+- [Arm Matrix](#arm-matrix-t0e)
+- [Position Vector](#position-vector)
+- [Normal Vector (XN Axis)](#normal-vector-xn-axis)
+- [Sliding Vector (YN Axis)](#sliding-vector-yn-axis)
+- [Approach Vector (ZN Axis)](#approach-vector-zn-axis)
+
+## *Linear Diagram*
+
+
+
+
+
+
+# **Denavit-Hartenberg**(DH) parameters
 
 | Link Length (a<sub>i-1</sub>) | Link Twist (α<sub>i-1</sub>) | Joint Offset (d<sub>i</sub>) | Joint Angle (θ<sub>i</sub>) |
 |--------------------|-------------------|-------------------|-----------------|
@@ -62,34 +85,49 @@
 [                   0,                    0, 0,  1]
 ```
 
+
+
 ## Arm Matrix (T<sub>0E</sub>)
 ```
-T0E = 
-[cos(th2 + th3 + th4)*cos(th1)*sin(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th1)*cos(th6) - cos(th5)*sin(th1)*sin(th6), ...]
+T0E =
+ 
+[cos(th2 + th3 + th4)*cos(th1)*sin(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th1)*cos(th6) - cos(th5)*sin(th1)*sin(th6), sin(th2 + th3 + th4)*cos(th1)*sin(th6) - cos(th5)*cos(th6)*sin(th1) + cos(th2 + th3 + th4)*cos(th1)*cos(th6)*sin(th5), sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5), d3*(sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5)) + cos(th1)*(a1 + a3*cos(th2 + th3) + a2*cos(th2) + a4*cos(th2 + th3 + th4) - d2*sin(th2 + th3 + th4))]
+[cos(th1)*cos(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th6)*sin(th1) + cos(th2 + th3 + th4)*sin(th1)*sin(th5)*sin(th6), sin(th2 + th3 + th4)*sin(th1)*sin(th6) + cos(th1)*cos(th5)*cos(th6) + cos(th2 + th3 + th4)*cos(th6)*sin(th1)*sin(th5), cos(th2 + th3 + th4)*cos(th5)*sin(th1) - cos(th1)*sin(th5), sin(th1)*(a1 + a3*cos(th2 + th3) + a2*cos(th2) + a4*cos(th2 + th3 + th4) - d2*sin(th2 + th3 + th4)) - d3*(cos(th1)*sin(th5) - cos(th2 + th3 + th4)*cos(th5)*sin(th1))]
+[                                             - cos(th2 + th3 + th4)*cos(th6) - sin(th2 + th3 + th4)*sin(th5)*sin(th6),                                                cos(th2 + th3 + th4)*sin(th6) - sin(th2 + th3 + th4)*cos(th6)*sin(th5),                             -sin(th2 + th3 + th4)*cos(th5),                                           d1 - a3*sin(th2 + th3) - a2*sin(th2) - d2*cos(th2 + th3 + th4) - a4*sin(th2 + th3 + th4) - d3*sin(th2 + th3 + th4)*cos(th5)]
+[                                                                                                                    0,                                                                                                                     0,                                                          0,                                                                                                                                                                     1]
+```
+### Position Vector
+P =
+ ```
+d3*(sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5)) + cos(th1)*(a1 + a3*cos(th2 + th3) + a2*cos(th2) + a4*cos(th2 + th3 + th4) - d2*sin(th2 + th3 + th4))
+sin(th1)*(a1 + a3*cos(th2 + th3) + a2*cos(th2) + a4*cos(th2 + th3 + th4) - d2*sin(th2 + th3 + th4)) - d3*(cos(th1)*sin(th5) - cos(th2 + th3 + th4)*cos(th5)*sin(th1))
+                                          d1 - a3*sin(th2 + th3) - a2*sin(th2) - d2*cos(th2 + th3 + th4) - a4*sin(th2 + th3 + th4) - d3*sin(th2 + th3 + th4)*cos(th5)
+```
+ ### Normal Vector ( XN Axis)
+n =
+``` 
+cos(th2 + th3 + th4)*cos(th1)*sin(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th1)*cos(th6) - cos(th5)*sin(th1)*sin(th6)
+cos(th1)*cos(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th6)*sin(th1) + cos(th2 + th3 + th4)*sin(th1)*sin(th5)*sin(th6)
+                                             - cos(th2 + th3 + th4)*cos(th6) - sin(th2 + th3 + th4)*sin(th5)*sin(th6)
+ 
+ ```
+ ### Sliding Vector ( YN Axis)
+s =
+ ```
+sin(th2 + th3 + th4)*cos(th1)*sin(th6) - cos(th5)*cos(th6)*sin(th1) + cos(th2 + th3 + th4)*cos(th1)*cos(th6)*sin(th5)
+sin(th2 + th3 + th4)*sin(th1)*sin(th6) + cos(th1)*cos(th5)*cos(th6) + cos(th2 + th3 + th4)*cos(th6)*sin(th1)*sin(th5)
+                                               cos(th2 + th3 + th4)*sin(th6) - sin(th2 + th3 + th4)*cos(th6)*sin(th5)
+```
+ ### Approach Vector ( ZN Axis )
+a =
+ ```
+sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5)
+cos(th2 + th3 + th4)*cos(th5)*sin(th1) - cos(th1)*sin(th5)
+                            -sin(th2 + th3 + th4)*cos(th5)
+
+
 ```
 
-## Position Vector (P)
-```
-d3*(sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5)) + cos(th1)*(a1 + a3*cos(th2 + th3) + a2*cos(th2) + ...)
-```
 
-## Orientation Vectors
-
-### Normal Vector (n)
-```
-[cos(th2 + th3 + th4)*cos(th1)*sin(th5)*sin(th6) - sin(th2 + th3 + th4)*cos(th1)*cos(th6) - cos(th5)*sin(th1)*sin(th6)]
-```
-
-### Sliding Vector (s)
-```
-[sin(th2 + th3 + th4)*cos(th1)*sin(th6) - cos(th5)*cos(th6)*sin(th1) + cos(th2 + th3 + th4)*cos(th1)*cos(th6)*sin(th5)]
-```
-
-### Approach Vector (a)
-```
-[sin(th1)*sin(th5) + cos(th2 + th3 + th4)*cos(th1)*cos(th5)]
-```
-
-This document provides all necessary matrices for kinematic analysis of the robotic system.
 
 
