@@ -1,4 +1,4 @@
-# *6-Axis Manipulator Project*
+# *6-Axis Manipulator*
 
 *Timeline: February 2025 - Present*
 ## **Project Overview**
