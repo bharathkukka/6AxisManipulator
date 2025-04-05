@@ -21,7 +21,7 @@ This project is extension of my previous project [4-Axis Manipulator](https://gi
 
 ![Free body Diagram](https://github.com/bhaarath22/6AxisManipulator/blob/1c44f4b05553427278d6e6f6ebbd0bd7ed504e72/Data/Frame%20arrangement%202.jpeg)
   ## *Projection of {6} on {0}*
-![Position](Data/ProjectionBE.jpeg)
+![Position](https://github.com/bhaarath22/6AxisManipulator/blob/8ab5424e95ddc74ad68448610bd8e0c1f5eb9b1b/Data/Frame%20arrangement.jpeg)
 
 
 # **Denavit-Hartenberg**(DH) parameters
