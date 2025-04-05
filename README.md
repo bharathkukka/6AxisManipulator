@@ -12,8 +12,6 @@ This project is extension of my previous project [4-Axis Manipulator](https://gi
 - [DH Table](#Denavit-HartenbergDH-parameters)
 -  [Visualization of the Co-ordinate frames](#Visualization-of-the-Co-ordinate-Frames)
 - [Transformation Matrices](#transformation-matrices)
-- [Arm Matrix](#arm-matrix-t0e)
-- [Position & Orientation Vectors](#Position-Vector)
 - [Home Position](#Home-Position)
 
 ## *Linear Diagram*
