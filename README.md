@@ -41,156 +41,171 @@ I used MATLAB (Robotics System Toolbox, Version 24.1, R2024a) to visualize the c
 
 ![out](https://github.com/bhaarath22/6AxisManipulator/blob/a0188b56417b50737ff09bc6f44f96b29cec6c82/Data/FA-Matlab-Final.png)
 ----
+
+
+# Forward Kinematics - Robotic Arm
+
 ## Transformation Matrices
 
-### T<sub>01</sub>
+### T01
 ```
 [cos(th1), -sin(th1),  0,   0]
-[       0,         0, -1, -d1]
+[     0   ,     0    , -1, -d1]
 [sin(th1),  cos(th1),  0,   0]
-[       0,         0,  0,   1]
- 
+[     0   ,     0    ,  0,   1]
 ```
 
-### T<sub>12</sub>
+### T12
 ```
 [cos(th2), -sin(th2), 0, a1]
 [sin(th2),  cos(th2), 0,  0]
-[       0,         0, 1,  0]
-[       0,         0, 0,  1]
-
+[     0  ,      0   , 1,  0]
+[     0  ,      0   , 0,  1]
 ```
 
-### T<sub>23</sub>
+### T23
 ```
 [cos(th3), -sin(th3), 0, a2]
 [sin(th3),  cos(th3), 0,  0]
-[       0,         0, 1,  0]
-[       0,         0, 0,  1]
-
+[     0  ,      0   , 1,  0]
+[     0  ,      0   , 0,  1]
 ```
 
-### T<sub>34</sub>
+### T34
 ```
 [cos(th4), -sin(th4),  0,  a3]
-[       0,         0, -1, -d2]
+[     0  ,      0   , -1, -d2]
 [sin(th4),  cos(th4),  0,   0]
-[       0,         0,  0,   1]
-
+[     0  ,      0   ,  0,   1]
 ```
 
-### T<sub>45</sub>
-```
-[ cos(th5), -sin(th5), 0,  0]
-[        0,         0, 1, d3]
-[-sin(th5), -cos(th5), 0,  0]
-[        0,         0, 0,  1]
-
-
-### T<sub>56</sub>
+### T45
 ```
 [ cos(th5), -sin(th5), 0,  0]
-[        0,         0, 1, d3]
+[      0  ,      0   , 1, d3]
 [-sin(th5), -cos(th5), 0,  0]
-[        0,         0, 0,  1]
-
+[      0  ,      0   , 0,  1]
 ```
 
+### T56
+```
+[ cos(th6), -sin(th6), 0,  0]
+[      0  ,      0   , 1,  0]
+[-sin(th6), -cos(th6), 0,  0]
+[      0  ,      0   , 0,  1]
+```
 
+---
 
-## Arm Matrix (T<sub>0E</sub>)
+## End Effector Transformation Matrix (T0E)
 ```
 T0E =
- 
-[- cos(th6)*(sin(th1 + th2 + th3)*sin(th5) - cos(th1 + th2 + th3)*cos(th4)*cos(th5)) - sin(th6)*(sin(th1 + th2 + th3)*cos(th5) + cos(th1 + th2 + th3)*cos(th4)*sin(th5)), sin(th6)*(sin(th1 + th2 + th3)*sin(th5) - cos(th1 + th2 + th3)*cos(th4)*cos(th5)) - cos(th6)*(sin(th1 + th2 + th3)*cos(th5) + cos(th1 + th2 + th3)*cos(th4)*sin(th5)), -cos(th1 + th2 + th3)*sin(th4), a2*cos(th1 + th2) + a1*cos(th1) + a3*cos(th1 + th2 + th3) + d2*sin(th1 + th2 + th3) - d3*cos(th1 + th2 + th3)*sin(th4) - d4*cos(th1 + th2 + th3)*sin(th4)]
-[                                                                                                                                               -cos(th5 + th6)*sin(th4),                                                                                                                                               sin(th5 + th6)*sin(th4),                      -cos(th4),                                                                                                                          - d1 - d3*cos(th4) - d4*cos(th4)]
-[  cos(th6)*(cos(th1 + th2 + th3)*sin(th5) + sin(th1 + th2 + th3)*cos(th4)*cos(th5)) + sin(th6)*(cos(th1 + th2 + th3)*cos(th5) - sin(th1 + th2 + th3)*cos(th4)*sin(th5)), cos(th6)*(cos(th1 + th2 + th3)*cos(th5) - sin(th1 + th2 + th3)*cos(th4)*sin(th5)) - sin(th6)*(cos(th1 + th2 + th3)*sin(th5) + sin(th1 + th2 + th3)*cos(th4)*cos(th5)), -sin(th1 + th2 + th3)*sin(th4), a2*sin(th1 + th2) + a1*sin(th1) - d2*cos(th1 + th2 + th3) + a3*sin(th1 + th2 + th3) - d3*sin(th1 + th2 + th3)*sin(th4) - d4*sin(th1 + th2 + th3)*sin(th4)]
-[                                                                                                                                                                      0,                                                                                                                                                                     0,                              0,                                                                                                                                                         1]
- 
- 
+
+[ -cos(th6)*(s123*sin(th5) - c123*cos(th4)*cos(th5)) - sin(th6)*(s123*cos(th5) + c123*cos(th4)*sin(th5)),  
+   sin(th6)*(s123*sin(th5) - c123*cos(th4)*cos(th5)) - cos(th6)*(s123*cos(th5) + c123*cos(th4)*sin(th5)),  
+  -c123*sin(th4),  
+   a1*cos(th1) + a2*cos(th1 + th2) + a3*c123 + d2*s123 - d3*c123*sin(th4) - d4*c123*sin(th4) ],
+
+[ -cos(th5 + th6)*sin(th4),  
+   sin(th5 + th6)*sin(th4),  
+  -cos(th4),  
+  -d1 - d3*cos(th4) - d4*cos(th4) ],
+
+[  cos(th6)*(c123*sin(th5) + s123*cos(th4)*cos(th5)) + sin(th6)*(c123*cos(th5) - s123*cos(th4)*sin(th5)),  
+   cos(th6)*(c123*cos(th5) - s123*cos(th4)*sin(th5)) - sin(th6)*(c123*sin(th5) + s123*cos(th4)*cos(th5)),  
+  -s123*sin(th4),  
+   a1*sin(th1) + a2*sin(th1 + th2) + a3*s123 - d2*c123 - d3*s123*sin(th4) - d4*s123*sin(th4) ],
+
+[ 0, 0, 0, 1 ]
+
+Where:
+  - s123 = sin(th1 + th2 + th3)
+  - c123 = cos(th1 + th2 + th3)
 ```
-### Position Vector
-P =
- ```
- 
-a2*cos(th1 + th2) + a1*cos(th1) + a3*cos(th1 + th2 + th3) + d2*sin(th1 + th2 + th3) - d3*cos(th1 + th2 + th3)*sin(th4) - d4*cos(th1 + th2 + th3)*sin(th4)
-                                                                                                                         - d1 - d3*cos(th4) - d4*cos(th4)
-a2*sin(th1 + th2) + a1*sin(th1) - d2*cos(th1 + th2 + th3) + a3*sin(th1 + th2 + th3) - d3*sin(th1 + th2 + th3)*sin(th4) - d4*sin(th1 + th2 + th3)*sin(th4)
- 
- 
 
+---
+
+## Position Vector (P)
 ```
-## **Normal Vector (XN Axis)**
-n =
-``` 
-- cos(th6)*(sin(th1 + th2 + th3)*sin(th5) - cos(th1 + th2 + th3)*cos(th4)*cos(th5)) - sin(th6)*(sin(th1 + th2 + th3)*cos(th5) + cos(th1 + th2 + th3)*cos(th4)*sin(th5))
-                                                                                                                                               -cos(th5 + th6)*sin(th4)
-  cos(th6)*(cos(th1 + th2 + th3)*sin(th5) + sin(th1 + th2 + th3)*cos(th4)*cos(th5)) + sin(th6)*(cos(th1 + th2 + th3)*cos(th5) - sin(th1 + th2 + th3)*cos(th4)*sin(th5))
- 
+P = [
+  a1*cos(th1) + a2*cos(th1 + th2) + a3*cos(th1 + th2 + th3) + d2*sin(th1 + th2 + th3)
+    - d3*cos(th1 + th2 + th3)*sin(th4) - d4*cos(th1 + th2 + th3)*sin(th4),
 
- 
- ```
-## **Sliding Vector (YN Axis)**
-s =
- ```
-sin(th6)*(sin(th1 + th2 + th3)*sin(th5) - cos(th1 + th2 + th3)*cos(th4)*cos(th5)) - cos(th6)*(sin(th1 + th2 + th3)*cos(th5) + cos(th1 + th2 + th3)*cos(th4)*sin(th5))
-                                                                                                                                              sin(th5 + th6)*sin(th4)
-cos(th6)*(cos(th1 + th2 + th3)*cos(th5) - sin(th1 + th2 + th3)*cos(th4)*sin(th5)) - sin(th6)*(cos(th1 + th2 + th3)*sin(th5) + sin(th1 + th2 + th3)*cos(th4)*cos(th5))
- 
+  -d1 - d3*cos(th4) - d4*cos(th4),
 
+  a1*sin(th1) + a2*sin(th1 + th2) + a3*sin(th1 + th2 + th3) - d2*cos(th1 + th2 + th3)
+    - d3*sin(th1 + th2 + th3)*sin(th4) - d4*sin(th1 + th2 + th3)*sin(th4)
+]
 ```
-## **Approach Vector (ZN Axis)**
-a =
- ```
--cos(th1 + th2 + th3)*sin(th4)
-                     -cos(th4)
--sin(th1 + th2 + th3)*sin(th4)
 
+---
 
+## Orientation Vectors
 
+### Normal Vector (XN Axis) - n
 ```
-### ***Home Position***
+n = [
+  -cos(th6)*(s123*sin(th5) - c123*cos(th4)*cos(th5)) - sin(th6)*(s123*cos(th5) + c123*cos(th4)*sin(th5)),
+  -cos(th5 + th6)*sin(th4),
+   cos(th6)*(c123*sin(th5) + s123*cos(th4)*cos(th5)) + sin(th6)*(c123*cos(th5) - s123*cos(th4)*sin(th5))
+]
+```
 
-The home position of the manipulator is when th1 =0; th2=0; th3=0; th4=0; th5=0; th6=0;
+### Sliding Vector (YN Axis) - s
+```
+s = [
+   sin(th6)*(s123*sin(th5) - c123*cos(th4)*cos(th5)) - cos(th6)*(s123*cos(th5) + c123*cos(th4)*sin(th5)),
+   sin(th5 + th6)*sin(th4),
+   cos(th6)*(c123*cos(th5) - s123*cos(th4)*sin(th5)) - sin(th6)*(c123*sin(th5) + s123*cos(th4)*cos(th5))
+]
+```
 
-T0E =
+### Approach Vector (ZN Axis) - a
+```
+a = [
+  -cos(th1 + th2 + th3)*sin(th4),
+  -cos(th4),
+  -sin(th1 + th2 + th3)*sin(th4)
+]
+```
+
+---
+
+## Home Position
+
+When:
+```
+th1 = 0, th2 = 0, th3 = 0, th4 = 0, th5 = 0, th6 = 0
+```
+
+### T0E in Home Position
 ```
 [1, 0,  0,   a1 + a2 + a3]
-[0, 0, -1, - d1 - d3 - d4]
-[0, 1,  0,            -d2]
-[0, 0,  0,              1]
-
+[0, 0, -1,  -d1 - d3 - d4]
+[0, 1,  0,          -d2]
+[0, 0,  0,           1 ]
 ```
-I used the MATLAB ( Symbolic Math Toolbox  Version 24.1  (R2024a) ) to derive the forward kinematics solution and verified the manual calculations with MATLAB, confirming that they are correct.[code](Matlab/ForwardKinematics.m)
 
-Projection of {6} on {0} is matching
-
-P =
- ```
-a1 + a2 + a3
-- d1 - d3 - d4
-           -d2
-
+### Position Vector (P)
 ```
-n =
- ```
- 1
-0
-0
- ```
- 
-s =
-``` 
-0
-0
-1
- ```
- 
-a =
-``` 
-0
--1
-0
+P = [
+  a1 + a2 + a3,
+ -d1 - d3 - d4,
+        -d2
+]
 ```
+
+### Orientation Vectors
+```
+n = [1, 0, 0]
+s = [0, 0, 1]
+a = [0, -1, 0]
+```
+
+---
+
+*Verified using MATLAB Symbolic Math Toolbox (R2024a). All manual calculations match symbolic output.*
+
+
  
 
