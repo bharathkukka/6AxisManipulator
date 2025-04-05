@@ -10,7 +10,7 @@ theta6 = 0;
 
 % %DH Parameters [a alpha d theta] meters 
 
-DHparameters = [
+(* DHparameters = [
        0      0       0.1       theta1;
       0.04  -pi/2     0        theta2;
       0.06   0        0        theta3;
@@ -18,7 +18,16 @@ DHparameters = [
       0.04   3*pi/2   0.03     theta5+3*pi/2;
       0      3*pi/2    0.04     theta6+pi/2;
   ];
+ 
 
+ DHparameters = [
+      0      pi/2         0.06     theta1;
+      0.2     0           0        theta2;
+      0.15    0           0        theta3;
+      0.08   pi/2         0.06     theta4;
+      0     -pi/2         0.06     theta5;
+      0      0            0.03     theta6;
+  ];
 
 
 % Creating a robot model
