@@ -1,3 +1,4 @@
+
 clear all
 close all
 clc
@@ -9,12 +10,13 @@ syms th1 th2 th3 th4 th5  th6 d1 d2  d3  a1 a2 a3   a4 real
 
 N = 6; % no of joints
           % [ ai-1 alphai-1  thetai di]
- DHtable = [ 0,   0,       d1, th1;
-            a1,  -pi/2,    0,  th2 ;
-            a2,  0,        0,  th3;
-            a3,  0,        0,  th4;
-            a4,  3*pi/2,   d2, th5+(3*(pi/2)) ;
-            0,   3*pi/2,     d3, th6+(3*(pi/2))]
+          
+ DHtable = [ 0,   pi/2,       d1,   th1;
+            a1,  0,            0,   th2 ;
+            a2,  0,            0,   th3;
+            a3,  pi/2,         d2,  th4;
+            0,  -pi/2,         d3,  th5 ;
+            0,   0,            d4,  th6 ]
 
 % general DHTH
 
