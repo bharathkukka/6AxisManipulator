@@ -17,7 +17,8 @@ theta6 = 0;
       0.05   0        0        theta4;
       0.04   3*pi/2   0.03     theta5+3*pi/2;
       0      3*pi/2    0.04     theta6+pi/2;
-  ]; %}
+  ]; 
+  %}
  
 
  DHparameters = [
