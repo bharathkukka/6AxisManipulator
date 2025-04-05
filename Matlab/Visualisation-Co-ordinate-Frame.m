@@ -10,14 +10,14 @@ theta6 = 0;
 
 % %DH Parameters [a alpha d theta] meters 
 
-(* DHparameters = [
+%( DHparameters = [
        0      0       0.1       theta1;
       0.04  -pi/2     0        theta2;
       0.06   0        0        theta3;
       0.05   0        0        theta4;
       0.04   3*pi/2   0.03     theta5+3*pi/2;
       0      3*pi/2    0.04     theta6+pi/2;
-  ]; *)
+  ]; %)
  
 
  DHparameters = [
