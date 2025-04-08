@@ -80,3 +80,56 @@ The Newton-Raphson method ensures that each iteration brings the system closer t
 3. The robot will attempt to converge to the desired pose, and the visualization will show its progress.
 4. If the manipulator converges, the final joint angles will be displayed.
 
+
+
+# Reachable Workspace Simulation (MATLAB)
+
+## 📌 Description
+
+This MATLAB script simulates and visualizes the **reachable workspace** of my 6-degree-of-freedom (6-DOF) robotic manipulator using **random sampling** and **forward kinematics**. It helps us understand the range of motion and space that the robot's end-effector can reach.
+
+---
+
+
+
+
+ ### Sample Joint Angles
+Generates 5000 random configurations of the robot joints (q1 to q6) within the full rotation range from -π to π.
+q = (2*pi)*rand(6,1) - pi;
+
+### Stores End-Effector Positions
+For each random joint configuration, the resulting end-effector position (x, y, z) is extracted from the final transformation matrix T and stored.
+
+### 3D Visualization of Workspace
+Plots a 3D scatter of all reachable positions, representing the reachable workspace of the robot.
+scatter3(positions(:,1), positions(:,2), positions(:,3), 5, 'filled');  
+
+
+### What Is Reachable Workspace? 
+
+The reachable workspace includes all the points in 3D space that the robot's end-effector can reach without considering orientation.
+## Why it's useful:
+Helps visualize the robot's reach limits
+Assists in robot placement and task feasibility studies
+Essential for workcell layout, safety zones, and task planning
+
+
+## Understanding Workspace Types
+
+Workspace Type	Description
+Reachable Workspace	All positions the end-effector can reach, regardless of orientation.
+Dexterous Workspace	Subset of points where the robot can reach with all possible orientations.
+
+ 
+### How to Find Workspaces
+
+### ➤ Reachable Workspace (This Code)  
+
+Randomly sample joint angles
+Apply forward kinematics
+Store and plot the positions  
+
+### ➤ Dexterous Workspace (More Advanced)
+For each position, test if the robot can achieve all orientations
+Requires inverse kinematics or Jacobian analysis
+Smaller, more complex to compute
