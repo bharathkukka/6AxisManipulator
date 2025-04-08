@@ -1,114 +1,114 @@
-% Newton-Raphson Iterative Method
-
 clc; clear; close all;
 
-% clc; → Clears the command window.
-% clear; → Clears all variables from the workspace.
-% close all; → Closes all open figures.
+n = 6; % DOF
 
-n = 6; % Number of Axis (Joints) DOF
+% Robot dimensions
+ a1 = 0.2; a2 = 0.15; a3 = 0.08;
+ d1 = 0.06; d2 = 0.06; d3 = 0.06; d4 = 0.03;
 
-% Joint Angles (Initial Guess)
 
-q = zeros(n,1); % Initializes a 6×1 column vector of zeros for joint angles.
+% Desired pose
+P_desired = [0.15; 0.0131;-0.004];
+R_desired = eye(3); 
 
-%  Desired End-Effector Position and Orientation
+% Initial joint guess
+q = zeros(n,1); 
 
-P_desired = [0.5; 0.3; 0.7];  %  Defines the target position (x, y, z).
-R_desired = eye(3); % Target orientation (rotation matrix) is set to an identity matrix, meaning no rotation.
+% Convergence settings
+tol = 0.43;
+max_iters = 10;
+i = 0;
 
-% Tolerance and Maximum Iterations
+while i < max_iters
+    [P_current, R_current, J, joint_positions] = forwardKinematicsAndJacobian(q, d1,a1,a2,a3,d2,d3,d4);
+    
+    e_p = P_desired - P_current;
 
-tol = 1e-6; % Tolerance for convergence , Stops iteration when the error is very small.
-max_iters = 100; % Maximum iterations , Limits the number of iterations to 100 to avoid infinite loops.
-i = 0; % Iteration counter ,Iteration counter starts from zero.
-
-%  Iterate Until Convergence or Max Iterations
-
-while i < max_iters % until the error is below tol or it reaches max_iters.
-
-%  Compute Forward Kinematics and Jacobian
-
-[P_current, R_current, J] = forwardKinematicsAndJacobian(q);
-
-% function calculates- End-effector position (P_current), End-effector orientation (R_current), Jacobian matrix (J).
-
-e_p = P_desired - P_current;
-
-e_o = 0.5 * (cross(R_current(:,1), R_desired(:,1)) +
-             cross(R_current(:,2), R_desired(:,2)) + 
-             cross(R_current(:,3), R_desired(:,3)));
-
-% Orientation error using the axis-angle approach:
-%Computes the difference between the column vectors of R_current and R_desired.
-%Takes the cross product to find the rotational difference.
-
-error = [e_p; e_o]; %Combines position and orientation errors into a single 6×1 vector.
-
-if norm(error) < tol % If the norm (magnitude) of the error is below tolerance, it stops iterating.
-    disp('Converged!');
-    break;
+    e_o = 0.5 * (cross(R_current(:,1), R_desired(:,1)) + ...
+                 cross(R_current(:,2), R_desired(:,2)) + ...
+                 cross(R_current(:,3), R_desired(:,3)));
+    
+    error = [e_p; e_o];
+    
+    if norm(error) < tol
+        disp('Converged!');
+        break;
+    end
+    
+    delta_q = pinv(J) * error;
+    q = q + delta_q;
+    i = i + 1;
+    
+    % Visualization at each step
+    plotRobot(joint_positions, P_desired);
 end
-
-%  Δq using the Jacobian
-
-delta_q = pinv(J) * error;
-
-%Uses the pseudo-inverse pinv(J) (to avoid singularities) to solve:
-%J⋅Δq=e
-%for joint angle update (delta_q).
-
-%Update Joint Angles
-q = q + delta_q; % Updates the joint angles incrementally.
-
-i = i + 1; % Increments iteration counter.
 
 if i == max_iters
     disp('Max iterations reached without convergence.');
 end
 
+%% Forward Kinematics and Jacobian
+function [P, R, J, joint_positions] = forwardKinematicsAndJacobian(q, d1,a1,a2,a3,d2,d3,d4)
+    DH_params = [ 0,   pi/2,  d1, q(1);
+                 a1,    0,    0, q(2);
+                 a2,    0,    0, q(3);
+                 a3,  pi/2,  d2, q(4);
+                 0,  -pi/2,  d3, q(5);
+                 0,     0,  d4, q(6)];
+    
+    T = eye(4);
+    J_v = zeros(3,6);
+    J_w = zeros(3,6);
+    z = [0; 0; 1];
+    p = [0; 0; 0];
 
-%  Compute Forward Kinematics and Jacobian
+    joint_positions = zeros(3, 7);
+    joint_positions(:,1) = p;
 
-function [P, R, J] = forwardKinematicsAndJacobian(q)
-%Function takes q (joint angles) as input.
-%Computes: P → Position, R → Rotation matrix, J → Jacobian matrix.
+    for j = 1:6
+        a = DH_params(j,1);
+        alpha = DH_params(j,2);
+        d = DH_params(j,3);
+        theta = DH_params(j,4);
 
-DH_params = [q(1), 0.3, 0.1, pi/2;
-             q(2), 0, 0.4, 0;
-             q(3), 0, 0.3, 0;
-             q(4), 0.2, 0, pi/2;
-             q(5), 0, 0, -pi/2;
-             q(6), 0.1, 0, 0];
+        A_j = [cos(theta), -sin(theta), 0, a;
+               sin(theta)*cos(alpha), cos(theta)*cos(alpha), -sin(alpha), -sin(alpha)*d;
+               sin(theta)*sin(alpha), cos(theta)*sin(alpha),  cos(alpha),  cos(alpha)*d;
+               0, 0, 0, 1];
 
-T = eye(4); % Initializes homogeneous transformation matrix.
-J_v = zeros(3,6);
-J_w = zeros(3,6);
+        T = T * A_j;
 
-% Linear and angular Jacobian matrices (size 3×6).
-z = [0; 0; 1]; % Initial z-axis.
-p = [0; 0; 0]; % Initial position.
+        R = T(1:3,1:3);
+        P = T(1:3,4);
+        joint_positions(:,j+1) = P;
 
-for j = 1:6
-theta = DH_params(j,1);
-d = DH_params(j,2);
-a = DH_params(j,3);
-alpha = DH_params(j,4);
-% Extracts DH parameters.
+        J_v(:,j) = cross(R(:,3), (P - p));
+        J_w(:,j) = R(:,3);
 
-A_j = [cos(theta), -sin(theta)*cos(alpha), sin(theta)*sin(alpha), a*cos(theta);
-       sin(theta), cos(theta)*cos(alpha), -cos(theta)*sin(alpha), a*sin(theta);
-       0, sin(alpha), cos(alpha), d;
-       0, 0, 0, 1];
-       %Computes the transformation matrix A_j for the current joint.
-T = T * A_j; % Updates the cumulative transformation matrix.
+        p = P;
+    end
 
-R = T(1:3, 1:3);
-P = T(1:3, 4);
-% Extracts rotation matrix and position vector.
-J_v(:, j) = cross(R(:,3), (P - p));
-J_w(:, j) = R(:,3);
-% Computes the linear (J_v) and angular (J_w) Jacobian columns.
-p = P; % Updates previous position.
-J = [J_v; J_w];
- 
+    P = T(1:3,4);
+    R = T(1:3,1:3);
+    J = [J_v; J_w];
+end
+
+%% Visualization
+function plotRobot(joint_positions, P_desired)
+    figure(1); clf;
+    hold on;
+    grid on;
+    axis equal;
+    xlabel('X'); ylabel('Y'); zlabel('Z');
+    title('6-Axis Manipulator Visualization');
+    
+    plot3(0, 0, 0, 'ks', 'MarkerSize', 20, 'MarkerFaceColor', 'k');
+
+    plot3(joint_positions(1,:), joint_positions(2,:), joint_positions(3,:), '-bo', 'LineWidth', 7);
+    plot3(P_desired(1), P_desired(2), P_desired(3), 'r*', 'MarkerSize', 30, 'LineWidth', 2);
+    
+    axis([-1 1 -3 1 0 1]);
+    pause(1);
+    view(3);
+    hold off;
+end
