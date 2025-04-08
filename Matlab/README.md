@@ -1,7 +1,6 @@
-# 6-DOF Manipulator Inverse Kinematics
+# Inverse Kinematics
 
-This project implements the inverse kinematics (IK) solution for my 6-degree-of-freedom (DOF) robotic manipulator using the Newton-Raphson method to iteratively solve for joint angles.  
-The manipulator's goal is to reach a desired end-effector pose (position and orientation) in 3D space.
+To implement the inverse kinematics (IK) solution for my 6-degree-of-freedom (DOF) robotic manipulator, I used the Newton-Raphson method to iteratively solve for joint angles. The manipulator's goal is to reach a desired end-effector pose, which includes both position and orientation, in 3D space.
 
 ## Overview
 
