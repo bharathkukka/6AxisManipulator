@@ -73,7 +73,6 @@ The Newton-Raphson method is an iterative numerical technique used to find roots
 The Newton-Raphson method ensures that each iteration brings the system closer to the desired solution by adjusting the joint angles based on the current error.
 
 
-
 ### Running the Code
 
 1. Set the desired pose of the manipulator by modifying the `P_desired` and `R_desired` variables.
@@ -81,12 +80,3 @@ The Newton-Raphson method ensures that each iteration brings the system closer t
 3. The robot will attempt to converge to the desired pose, and the visualization will show its progress.
 4. If the manipulator converges, the final joint angles will be displayed.
 
-### Example
-
-```matlab
-% Desired pose
-P_desired = [0.15; 0.0131; -0.004];
-R_desired = eye(3);  % Identity matrix for no rotation
-
-% Run the inverse kinematics solver
-inverse_kinematics;
