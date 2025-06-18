@@ -1,217 +1,139 @@
-Newton-Raphson Iteration
-Computes the error in position and orientation.
-Uses Jacobian pseudo-inverse to update joint angles.
-Iterates until error is below tolerance.
-Forward Kinematics & Jacobian Computation
-Uses Denavit-Hartenberg (DH) parameters to compute transformation matrices.
-Extracts position and rotation matrix.
-Computes Jacobian matrix for velocity and angular velocity.
+# 🧠 Inverse Kinematics using Newton-Raphson Iteration
 
-🧠 1. Introduction to Inverse Kinematics (IK)
+Numerical approach to solving Inverse Kinematics (IK) problems using the **Newton-Raphson method** and the **Jacobian pseudo-inverse**.
 
-Inverse Kinematics (IK) involves calculating the joint parameters (angles, positions) needed to place the end-effector of a robotic manipulator at a desired pose (position + orientation) in space.
-For a robot with:
-n joints (DOF),
-known forward kinematics: T = f(q) (a function from joint angles q to end-effector pose),
-the goal is to solve for q such that f(q) = desired_pose.
-🔁 2. Why Use Numerical Methods Like Newton-Raphson?
+---
 
-In most real-world robots:
-Analytical IK is hard (or impossible) due to nonlinear and coupled equations.
-Newton-Raphson provides a powerful iterative method for approximating the solution.
-🧮 3. Newton-Raphson Method Overview
+## 1. Introduction to Inverse Kinematics (IK)
 
-The method solves nonlinear equations of the form:
-F
-(
-q
-)
-=
-0
-F(q)=0
+**Inverse Kinematics (IK)** involves computing joint parameters (e.g., angles or displacements) required to place a robot's **end-effector** at a desired pose (position and orientation).
+
+Given:
+- A robot with `n` joints (degrees of freedom) n=6,
+- A known forward kinematics function: `T = f(q)`,  
+  where `q` is the vector of joint variables and `T` is the end-effector pose (position + orientation).
+
+**Goal:** Find `q` such that:
+
+```text
+f(q) = desired_pose
+````
+
+---
+
+## 🔁 2. Why Use Numerical Methods Like Newton-Raphson?
+
+In practice:
+
+* **Analytical IK** is often difficult due to nonlinear and coupled equations.
+* **Newton-Raphson** offers a general, iterative method for finding an approximate solution to nonlinear systems.
+
+---
+
+## 🧮 3. Newton-Raphson Method Overview
+
+We want to solve:
+
+```text
+F(q) = 0
+```
+
+Where `F(q)` is the **error vector** between the current and desired end-effector pose.
+
+### Iterative Update Rule:
+
+```text
+q_(i+1) = q_i + Δq
+Δq = J†(q_i) · F(q_i)
+```
+
 Where:
-F(q) is the error between current pose and desired pose.
-We want to find q such that this error goes to zero.
-At each iteration:
-q
-i
-+
-1
-=
-q
-i
-+
-Δ
-q
-q 
-i+1
-​	
- =q 
-i
-​	
- +Δq
-Where:
-Δ
-q
-=
-J
-†
-(
-q
-i
-)
-⋅
-F
-(
-q
-i
-)
-Δq=J 
-†
- (q 
-i
-​	
- )⋅F(q 
-i
-​	
- )
-J
-†
-J 
-†
- : Moore-Penrose pseudo-inverse of Jacobian matrix.
-F
-(
-q
-i
-)
-F(q 
-i
-​	
- ): current error vector (position + orientation).
-🛠️ 4. Step-by-Step Newton-Raphson IK Algorithm
 
-Step 1: Initialization
-Choose initial guess q₀.
-Step 2: Compute Forward Kinematics
-Use DH parameters to compute the current end-effector pose: P_current, R_current.
-Step 3: Compute Error
-Position error:
-e
-p
-=
-P
-desired
-−
-P
-current
-e 
-p
-​	
- =P 
-desired
-​	
- −P 
-current
-​	
- 
-Orientation error:
-e
-o
-=
-1
-2
-(
-R
-current
-×
-R
-desired
-)
-e 
-o
-​	
- = 
-2
-1
-​	
- (R 
-current
-​	
- ×R 
-desired
-​	
- )
-or use rotation vector/axis-angle/logarithmic map.
-Stack errors:
-e
-=
-[
-e
-p
-e
-o
- 
-]
-e=[ 
-e 
-p
-​	
- 
-e 
-o
-​	
- 
-​	
- ]
-Step 4: Compute Jacobian Matrix J(q)
-Use forward kinematics to compute geometric Jacobian: 
-J
-=
-[
-J
-v
-J
-w
- 
-]
-J=[ 
-J 
-v
-​	
- 
-J 
-w
-​	
- 
-​	
- ]
-Step 5: Update Joint Values
-Solve:
-Δ
-q
-=
-J
-†
-⋅
-e
-Δq=J 
-†
- ⋅e
-Update:
-q
-=
-q
-+
-Δ
-q
-q=q+Δq
-Step 6: Repeat
-Until:
-∥
-e
-∥
-<
-tolerance
-∥e∥<tolerance
-or max iterations reached.
+* `J†(q_i)` is the **Moore-Penrose pseudo-inverse** of the Jacobian matrix at `q_i`.
+* `F(q_i)` is the error vector at iteration `i`.
+
+---
+
+## 🛠️ 4. Step-by-Step Newton-Raphson IK Algorithm
+
+### Step 1: Initialization
+
+Choose an initial joint configuration guess: `q₀`.
+
+### Step 2: Compute Forward Kinematics
+
+Use **DH parameters** to compute the transformation matrix for the current pose:
+
+* Extract position: `P_current`
+* Extract orientation matrix: `R_current`
+
+### Step 3: Compute Error
+
+#### Position Error:
+
+```text
+e_p = P_desired - P_current
+```
+
+#### Orientation Error:
+
+One option using rotation matrices:
+
+```text
+e_o ≈ 0.5 * (R_current × R_desired)   (vector form or skew-symmetric representation)
+```
+
+Alternatively, use:
+
+* **Rotation vector**
+* **Axis-angle representation**
+* **Logarithmic map**
+
+#### Total Error Vector:
+
+```text
+e = [ e_p
+      e_o ]
+```
+
+### Step 4: Compute Jacobian Matrix
+
+Use the geometric Jacobian derived from forward kinematics:
+
+```text
+J = [ J_v
+      J_w ]
+```
+
+* `J_v`: Jacobian for linear velocity
+* `J_w`: Jacobian for angular velocity
+
+### Step 5: Solve for Joint Update
+
+```text
+Δq = J† · e
+q = q + Δq
+```
+
+### Step 6: Repeat Until Convergence
+
+Continue iterations until:
+
+```text
+‖e‖ < tolerance
+```
+
+Or a maximum number of iterations is reached.
+
+---
+
+## ✅ Summary
+
+The Newton-Raphson method provides:
+
+* A flexible and robust way to solve IK when analytical solutions are impractical.
+* Iterative updates that converge to an accurate solution under proper conditions.
+* A foundation for more advanced methods like damped least squares and optimization-based IK.
+
+---
+```
