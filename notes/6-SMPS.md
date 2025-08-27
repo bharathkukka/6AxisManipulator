@@ -82,6 +82,4 @@ Using a **single 24V 15A 360W SMPS** is the **professional choice**:
 * ✅ More reliable
 * ✅ Electrically safer
 
-Perfect for powering your **6-DOF robotic arm** with NEMA17 + NEMA23 steppers.
-
 ---
