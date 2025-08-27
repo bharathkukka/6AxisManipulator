@@ -2,7 +2,7 @@
 
 ## 💡 How It Works: The Basic Concept
 
-Your system operates in a simple feedback loop:
+system operates in a simple feedback loop:
 
 1. **Command** → The controller (Arduino, ESP32, etc.) tells the stepper motor to move a set number of steps.
 2. **Move** → The motor attempts to reach the commanded position.
@@ -146,4 +146,4 @@ Rotary encoders act as the **“eyes” of the closed-loop system**, continuousl
 
 ## 🚀 Conclusion
 
-Building a **closed-loop manipulator with stepper motors + encoders + limit switches** is a **proven, powerful, and budget-friendly approach**. You’ll achieve near-professional performance while learning valuable robotics, electronics, and control theory skills.
+Building a **closed-loop manipulator with stepper motors + encoders + limit switches** is a **proven, powerful, and budget-friendly approach**
