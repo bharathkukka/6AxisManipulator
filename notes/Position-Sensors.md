@@ -86,6 +86,48 @@ This is essentially how expensive closed-loop systems work—just recreated usin
 
 ---
 
+# 🔧 Primary Sensor: Rotary Encoders ⚙️
+
+Rotary encoders act as the **“eyes” of the closed-loop system**, continuously providing position feedback for each motor. For a 6-DOF robotic arm, you’ll need **one encoder per motor**.
+
+---
+
+## ✅ Recommended Type
+
+* **Incremental Optical Encoders**
+
+  * Best balance of **precision, speed, and cost** for robotics projects.
+  * Widely available and well-supported.
+
+---
+
+## 📏 Key Specifications
+
+| Parameter            | Recommendation           | Notes                                                                 |
+| -------------------- | ------------------------ | --------------------------------------------------------------------- |
+| **Resolution (PPR)** | **400 – 1000 PPR**       | Higher PPR = better accuracy.                                         |
+| **Common Choice**    | **600 PPR**              | Excellent trade-off between cost and precision.                       |
+| **Shaft Size**       | **5mm or 8mm (typical)** | Match encoder bore size to motor shaft. Use shaft couplers if needed. |
+
+---
+
+## 🔩 Mounting Guidelines
+
+* **Preferred Method**: Mount the encoder on the **rear shaft** of a **dual-shaft stepper motor**.
+* **Check Before Buying**: Ensure your stepper has a **rear shaft**.
+* **Alternative**: If the motor is **single-shaft**, mount the encoder on the **driven joint** (mechanically more complex).
+
+---
+
+## ⚠️ Key Notes
+
+* Misalignment during mounting can cause inaccurate readings → use a coupler if needed.
+* Encoders should be **rigidly fixed** to avoid vibrations/movement errors.
+* If possible, add **limit switches** for homing → encoders (especially incremental) need a reference zero.
+
+
+
+
 ## ⚖️ Summary: Pros & Cons
 
 **✅ Pros**
