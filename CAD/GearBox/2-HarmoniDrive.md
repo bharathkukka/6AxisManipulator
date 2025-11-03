@@ -1,106 +1,127 @@
-### I. Introduction and Definition
+# Harmonic Drive (Strain Wave Gear)
 
-A **strain wave gear**, also commonly known by the brand name **Harmonic Drive** (trademarked by the Harmonic Drive Company), is a unique type of mechanical gearing system. It was invented in **1957 by Steve Walton Master**.
-
-**Key Characteristics**:
-*   **Very high reduction ratios** in a compact and lightweight package compared to traditional gearing systems like helical or planetary gears. It can achieve reduction ratios of **up to 30 times in the same space**.
-*   **Zero backlash characteristic**.
-*   **High torque accuracy and reliability**.
 ---
-### II. Applications
 
-Due to its unique characteristics, this gearing system is used in a wide range of applications, including:
-*   Robotics
-*   Aerospace
-*   Medical machines
-*   Milling machines
-*   Manufacturing equipment
----  
-### III. Key Components and Design
+## I. Introduction & Definition
 
-A Harmonic Drive has **three key components**:
+A **strain wave gear** (commonly known as **Harmonic Drive**) is a unique mechanical gearing system invented in **1957 by Steve Walton Master**.
 
-1.  **Wave Generator**:
-    *   Has an **elliptical shape**.
-    *   Consists of an elliptical hub and a special thin-walled bearing that follows the elliptical shape of the hub.
-    *   This is the **input of the gear set** and is connected to the motor shaft. As it rotates, it generates a wave motion.
-    *   **3D Printed Design Adaptation**: For 3D printing, the special thin-walled bearing is replaced with **normal ball bearings arranged around the circumference of an ellipse**. The major axis radius of the ellipse should be 1.25 millimeters bigger than the inner wall radius of the Flex Plane, and the minor axis radius 1.25 millimeters smaller. The wave generator is typically made of two sections to easily attach the bearings, with one section featuring a shaft coupler for a motor like a NEMA 17 stepper motor.
+**Key Characteristics:**
+- **Very high reduction ratios** in a compact, lightweight package (up to 30x in the same space as traditional gears)
+- **Zero backlash**
+- **High torque accuracy & reliability**
 
-2.  **Flex Spline (or Flex Plane)**:
-    *   Has the form of a **cylindrical cup**.
-    *   Made from **flexible but torsionally stiff alloy steel material**.
-    *   The sides of the cup are very thin, while the bottom is thick and rigid. This design allows the open end to be flexible and the closed end to be rigid, which can be used as an **output** by connecting an output flange to it.
-    *   Has **external teeth** on the open end of the cup.
+---
 
-3.  **Circular Spline**:
-    *   A **rigid ring with teeth on the inside**.
-    *   The **circular spline has two more teeth than the Flex Spline**. This tooth count difference is a key design aspect of the strain wave gear system.
----  
-### IV. Working Principle
+## STL Files for Harmonic Drive
 
-1.  **Insertion and Deformation**: The wave generator is inserted into the Flex Spline, causing the Flex Spline to take the elliptical shape of the wave generator.
-2.  **Meshing**: The wave generator and the deformed Flex Spline are then placed inside the circular spline. Due to the elliptical shape of the Flex Spline, its teeth mesh with the internal teeth of the circular spline **only in two regions** on opposite sides, across the major axis of the wave generator ellipse.
-3.  **Wave Motion and Rotation**: As the wave generator rotates, it radially deforms the open end of the Flex Spline, causing the teeth meshing regions to slowly change position.
-4.  **Tooth Count Difference and Backward Movement**: Because the Flex Spline has two fewer teeth than the circular spline, for every 180 degrees (half) rotation of the wave generator, the Flex Spline's teeth meshing with the circular spline will advance by only **one tooth**. This results in the Flex Spline rotating a small amount **backward** relative to the wave generator. For a full 360-degree rotation of the wave generator, the Flex Spline will advance by **two teeth**.
+You can download ready-to-print STL files for the Harmonic Drive from [HowToMechatronics](https://howtomechatronics.com/download/harmonic-drive-stl-files/).
 
-### V. Reduction Ratio Calculation
+---
 
-The reduction ratio can be easily calculated using the following formula:
-**Ratio = (Flex Spline Teeth - Circular Spline Teeth) / Flex Spline Teeth**
+## II. Applications
 
-*   **Example**: If the Flex Spline has 200 teeth and the Circular Spline has 202 teeth (two more), the reduction ratio is (200 - 202) / 200 = -0.01.
-*   This translates to **1/100th the speed of the wave generator**.
-*   The **minus sign indicates that the output is in the opposite direction**.
-*   Different reduction ratios can be achieved by changing the number of teeth, either by altering the mechanism diameter with the same size teeth, or by changing the teeth size while preserving the gear set's size and weight.
----  
-### VI. Design for 3D Printing
+Used in:
+- **Robotics**
+- **Aerospace**
+- **Medical machines**
+- **Milling & manufacturing equipment**
 
-*   **CAD Software**: Fusion 360 was used to design the model, with all parts designed to be 3D printable.
-*   **Gear Module and Teeth Count**:
-    *   The **module of the gears** (size of the teeth) was chosen to be **1.25**.
-    *   The **circular spline** was designed with **72 teeth**.
-    *   The **Flex Spline** (Flex Plane) was designed with **70 teeth** (two fewer than the circular spline).
-    *   This combination results in a **35:1 reduction ratio** while maintaining a relatively small gear set size.
-*   **Backlash Consideration**: 3D printed parts might not achieve true zero backlash due to printer limitations in accuracy and precision. Fine-tuning settings like horizontal expansion is crucial.
----  
-### VII. 3D Printing and Assembly Considerations
+---
 
-*   **Slicing Software Settings**:
-    *   The **horizontal expansion** feature in slicing software is crucial for accurate dimensions.
-    *   A setting of **-0.15 millimeters** for horizontal expansion was found to give relatively decent accuracy for the prints. Without this feature, prints can be slightly larger, preventing proper meshing. This value might vary per printer and requires testing.
+## III. Key Components & Design
 
-*   **Printer Used**: A Creality CR-10 3D printer was used for printing all parts.
+A Harmonic Drive consists of **three main components**:
 
-*   **Assembly Parts**: Besides 3D printed parts, bolts, nuts, and bearings are required.
-    *   Bearings for the output side: Two bearings with 47mm outer diameter and 35mm inner diameter are inserted into the housing, secured with M4 countersunk bolts and washers.
-    *   Distance rings (1.5mm thick) can be placed between bearings.
-    *   M4 bolts and nuts are used to attach the output flange to the Flex Spline.
-    *   M3 nuts are used in the wave generator for securing it to the motor shaft with grub screws.
-    *   10 bearings are inserted into the wave generator.
-    *   M3 bolts (16mm long) and nuts secure the wave generator bearings.
+| Component         | Description                                                                                 |
+|------------------|--------------------------------------------------------------------------------------------|
+| **Wave Generator** | Elliptical input hub with ball bearings (for 3D printing), creates wave motion              |
+| **Flex Spline**    | Thin-walled, flexible cylindrical cup with external teeth; output side                      |
+| **Circular Spline**| Rigid ring with internal teeth; has two more teeth than Flex Spline                        |
 
-*   **Assembly Steps**:
-    1.  Insert output bearings into the housing.
-    2.  Attach the output flange to the Flex Spline using bolts.
-    3.  Insert the Flex Spline through the bearing.
-    4.  Assemble the output shaft by placing M4 nuts in slots and securing additional parts.
-    5.  Assemble the wave generator by inserting M3 nuts and the 10 bearings, then securing them with bolts and nuts.
-    6.  Attach the motor (NEMA 17 stepper motor) to the motor mount and the lid of the gear set.
-    7.  Insert the wave generator into the Flex Spline, maintaining a 2mm distance from the motor lid using washers as guides, then tighten grub screws to secure it to the motor shaft.
-    8.  Finally, insert M4 nuts into housing sockets and secure both the circular spline and the wave generator to the housing along with the lid.
+**3D Printing Adaptation:**
+- Ball bearings replace thin-walled bearing in wave generator
+- Major axis radius: **+1.25 mm** vs. Flex Plane inner wall
+- Minor axis radius: **-1.25 mm** vs. Flex Plane inner wall
+- Wave generator: two sections, one with shaft coupler (e.g., NEMA 17 stepper motor)
 
-*   **Visual Enhancement**: The 3D printed lid can be replaced with an acrylic one to see the internal workings.
+---
 
-### VIII. Performance Tests
+## IV. Working Principle
 
-*   **Operation**: The assembled gearbox, with a 35:1 reduction ratio, showed the output shaft rotating 35 times slower than the input shaft.
-*   **Smoothness**: The motion can sometimes be "jittery". This was attributed to the motor not being mounted perfectly in the center, especially when using a hand-made acrylic motor mount. Using the original 3D printed motor mount resulted in smoother movement.
-*   **Backlash**:
-    *   While strain wave gears are known for zero backlash, the 3D printed model showed **noticeable backlash**.
-    *   This is primarily due to the **limitations of 3D printers** in achieving perfectly accurate and precise dimensions and tooth profiles.
-    *   Even slight inaccuracies (e.g., 0.18 mm thickness from insulating tape on the Flex Spline inner wall) can significantly improve results, suggesting that **testing and fine-tuning print settings** are crucial.
-*   **Torque Test**:
-    *   The gearbox was able to lift **1.25 kilograms at a distance of 25 centimeters**.
-    *   This translates to a torque of around **3 Newton-meters**.
-    *   This is **at least 10 times greater** than the rated torque of a NEMA 17 stepper motor (typically around 28 Newton-centimeters or 0.28 Newton-meters).
-    *   The efficiency was not directly stated but can be inferred as less than ideal; a 35:1 ratio would ideally provide 35 times the torque.
+1. **Insertion & Deformation:** Wave generator inserted into Flex Spline, deforming it elliptically
+2. **Meshing:** Flex Spline (deformed) placed inside Circular Spline; teeth mesh in two regions (major axis)
+3. **Wave Motion:** Rotating wave generator moves meshing regions
+4. **Tooth Count Difference:** For every 180° rotation, Flex Spline advances by one tooth (backward relative to input)
+5. **Output:** For 360° rotation, Flex Spline advances by two teeth
+
+---
+
+## V. Reduction Ratio Calculation
+
+**Formula:**
+```
+Ratio = (Flex Spline Teeth - Circular Spline Teeth) / Flex Spline Teeth
+```
+
+**Example:**
+- Flex Spline: **200 teeth**
+- Circular Spline: **202 teeth**
+- Ratio: (200 - 202) / 200 = **-0.01** (output is 1/100th speed, opposite direction)
+
+**Design Example:**
+- Gear module: **1.25**
+- Circular Spline: **72 teeth**
+- Flex Spline: **70 teeth**
+- Ratio: **35:1**
+
+---
+
+## VI. Design for 3D Printing
+
+- **CAD Software:** Fusion 360
+- **Backlash:** 3D printed parts may not achieve zero backlash; fine-tune horizontal expansion
+
+---
+
+## VII. 3D Printing & Assembly Considerations
+
+**Slicing Settings:**
+- Horizontal expansion: **-0.15 mm** (may vary by printer)
+
+**Printer:** Creality CR-10
+
+**Required Parts:**
+- Bearings (output): 2 × 47mm OD, 35mm ID
+- Distance rings: 1.5mm thick
+- M4 bolts/nuts (output flange)
+- M3 nuts (wave generator)
+- 10 bearings (wave generator)
+- M3 bolts (16mm) & nuts (wave generator)
+
+**Assembly Steps:**
+1. Insert output bearings into housing
+2. Attach output flange to Flex Spline
+3. Insert Flex Spline through bearing
+4. Assemble output shaft (M4 nuts in slots)
+5. Assemble wave generator (insert M3 nuts & bearings, secure with bolts)
+6. Attach motor to mount & lid
+7. Insert wave generator into Flex Spline (2mm distance from lid), tighten grub screws
+8. Secure circular spline & wave generator to housing with lid
+
+**Visual Enhancement:**
+- Use acrylic lid for internal visibility
+
+---
+
+## VIII. Performance Tests
+
+| Test         | Result/Observation                                                                 |
+|--------------|------------------------------------------------------------------------------------|
+| **Operation**| Output shaft rotates **35x slower** than input shaft                               |
+| **Smoothness**| Jittery motion if motor not centered; smoother with original 3D printed mount      |
+| **Backlash** | Noticeable due to 3D printer limitations; fine-tuning (e.g., tape) improves result |
+| **Torque**   | Lifted **1.25 kg at 25 cm** (≈3 Nm torque, 10x NEMA 17 rating)                     |
+| **Efficiency**| Less than ideal; 35:1 ratio should provide 35x torque                             |
+
+---
