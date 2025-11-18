@@ -162,7 +162,4 @@ a = [0, -1, 0]
 *Verified using MATLAB Symbolic Math Toolbox (R2024a). All manual calculations match symbolic output.*. 
 
 ## ***Robots Reachable WorkSpace***
-# [code](https://github.com/bhaarath22/6AxisManipulator/blob/b854e4c5bf50857b7c99eb25d89884c77c3abe43/Matlab/ReachableWorkspace.m)
-
-
 ![ing](https://github.com/bhaarath22/6AxisManipulator/blob/34afa07deb6d9638e5373b5b9a60f6bf56aa62b3/Data/Rworkspace.png)

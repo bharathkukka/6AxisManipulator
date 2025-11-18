@@ -19,7 +19,7 @@
 
 ------
 ## **Visualization of the Co-ordinate Frames**
-I used MATLAB (Robotics System Toolbox, Version 24.1, R2024a) to visualize the coordinate frames. This helped me view the joint axes in 3D and verify the correctness of my DH parameters. [code](https://github.com/bhaarath22/6AxisManipulator/blob/6a545a6a93bf74ffca8c1d71b9901aa56932cfdb/Matlab/Visualisation-Co-ordinate-Frame.m)
+I used MATLAB (Robotics System Toolbox, Version 24.1, R2024a) to visualize the coordinate frames. This helped me view the joint axes in 3D and verify the correctness of my DH parameters.
 
 ![out](https://github.com/bhaarath22/6AxisManipulator/blob/a0188b56417b50737ff09bc6f44f96b29cec6c82/Data/FA-Matlab-Final.png)
 ----
