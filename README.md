@@ -11,15 +11,8 @@ This project is extension of my previous project [4-Axis Manipulator](https://gi
 
 ## Table of Contents
 
-
-- [6-Axis Manipulator](#6-axis-manipulator)
-  - [Project Overview](#project-overview)
-  - [Table of Contents](#table-of-contents)
   - [Linear Diagram](#linear-diagram)
-    - [Projection of {6} on {0}](#projection-of-6-on-0)
-  - [Denavit-Hartenberg (DH) Parameters](#denavit-hartenberg-dh-parameters)
   - [Frame Visualization](#frame-visualization)
-  - [Final Block View](#final-block-view)
   - [Kinematics \& Dynamics](#kinematics--dynamics)
     - [FK-Transformation](#fk-transformation)
     - [Inverse Kinematics Newton Raphson Method](#inverse-kinematics-newton-raphson-method)
