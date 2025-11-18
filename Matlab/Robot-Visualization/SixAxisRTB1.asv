@@ -1,0 +1,31 @@
+clc; clear; close all;
+
+a1 = 0.2; a2 = 0.15; a3 = 0.08;
+d1 = 0.06; d2 = 0.06; d3 = 0.06; d4 = 0.03;
+
+%  q(theta( , d, a, alpha
+L(1)= Link([0,d1,0,pi/2]);
+L(2)= Link([0,0,a1,0]);
+L(3)= Link([0,0,a2,0]);
+L(4)= Link([0,d2,a3,pi/2]);
+L(5)= Link([0,d3,0,-pi/2]);
+L(6)= Link([0,d4,0,0]);
+
+SixAxisManipulator = SerialLink(L,'name','6-AxisManipulator');
+
+q=[0,0,0,0,0,0];
+
+ T=SixAxisManipulator.fkine(q);
+ disp(T);
+% robot.plot(q);
+ % robot.teach();
+
+% Target = transl(0.5,0.6,0.3)*trotz(pi/4);
+%  qsol = robot.ikine(Target);
+
+
+% q1 = zeros(1,6);
+% q2 = [pi/6 pi/4 -pi/4 pi/3 pi/6 pi/2];
+% 
+% qtraj = jtraj(q1, q2, 50);  % Joint trajectory
+% SixAxisManipulator.plot(qtraj);
