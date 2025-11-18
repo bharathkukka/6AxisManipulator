@@ -10,8 +10,6 @@ In this repository, you will see everything that I have completed to date, inclu
 This project is extension of my previous project [4-Axis Manipulator](https://github.com/bhaarath22/4AxisManipulator.git)
 
 ## Table of Contents
-
-
 - [6-Axis Manipulator](#6-axis-manipulator)
   - [Project Overview](#project-overview)
   - [Table of Contents](#table-of-contents)
