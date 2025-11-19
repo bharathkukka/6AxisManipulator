@@ -12,6 +12,8 @@ This is intentionally simple and self-contained so I can tweak DH parameters, vi
 
 The DH convention I’m using is: `[a_{i-1}, α_{i-1}, d_i, θ_i]`.
 
+<!-- markdownlint-disable MD033 -->
+
 
 ### 1) Forward Kinematics
 
@@ -27,9 +29,9 @@ The DH convention I’m using is: `[a_{i-1}, α_{i-1}, d_i, θ_i]`.
 - How I run it:
   - Open the script and hit Run. I change the DH parameters or joint values at the top and re-run to see the updated transforms.
 - Visual notes:
-  - ![Forward Kinematics - Transform](./Data/FK-Transformation.png)
-  - ![Forward Kinematics - Example 1](./Data/FK-Trans1.png)
-  - ![Forward Kinematics - Example 2](./Data/FK-Trans2.png)
+  - <img src="./Data/FK-Transformation.png" alt="Forward Kinematics - Transform" width="420" />
+  - <img src="./Data/FK-Trans1.png" alt="Forward Kinematics - Example 1" width="420" />
+  - <img src="./Data/FK-Trans2.png" alt="Forward Kinematics - Example 2" width="420" />
 
 ---
 
@@ -52,9 +54,9 @@ The DH convention I’m using is: `[a_{i-1}, α_{i-1}, d_i, θ_i]`.
   - Open the script, adjust `P_desired`, `R_desired`, DH dimensions, or the initial `q`. Then Run.
   - If it’s not converging for a target, I try a different initial guess, scale down the update (e.g., damped least squares), or increase `max_iters`.
 - Visual notes:
-  - ![IK Newton–Raphson](./Data/IK-NR.png)
-  - ![IK Iterations 1](./Data/IK-NR1.png)
-  - ![IK Iterations 2](./Data/IK-NR2.png)
+  - <img src="./Data/IK-NR.png" alt="IK Newton–Raphson" width="420" />
+  - <img src="./Data/IK-NR1.png" alt="IK Iterations 1" width="420" />
+  - <img src="./Data/IK-NR2.png" alt="IK Iterations 2" width="420" />
 
 Implementation detail I keep in mind:
  
@@ -77,10 +79,10 @@ Implementation detail I keep in mind:
 - How I run it:
   - Run the script as-is to see symbolic expressions. I substitute numeric DH parameters and joint values when I want numbers instead of symbols.
 - Visual notes:
-  - ![Velocity Propagation Overview](./Data/VelocityPropagation.png)
-  - ![Velocity Propagation Detail 1](./Data/VP1.png)
-  - ![Velocity Propagation Detail 2](./Data/VP2.png)
-  - ![Velocity Propagation Detail 3](./Data/VP3.png)
+  - <img src="./Data/VelocityPropagation.png" alt="Velocity Propagation Overview" width="420" />
+  - <img src="./Data/VP1.png" alt="Velocity Propagation Detail 1" width="420" />
+  - <img src="./Data/VP2.png" alt="Velocity Propagation Detail 2" width="420" />
+  - <img src="./Data/VP3.png" alt="Velocity Propagation Detail 3" width="420" />
 
 ## Quick start
 

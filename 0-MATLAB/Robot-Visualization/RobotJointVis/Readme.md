@@ -1,33 +1,35 @@
 # Robot Visualization Gallery
 
 
+<!-- markdownlint-disable MD033 -->
+
 [▶️ Watch Demo Video](RobotJointVisualization.mov)
 
 ---
 
 ## Joint Views
 
-![Joint Visualization 1](Jointvis1.png)
+<img src="Jointvis1.png" alt="Joint Visualization 1" width="420" />
 
-![Joint Visualization 2](JointVis2.png)
+<img src="JointVis2.png" alt="Joint Visualization 2" width="420" />
 
-![Joint Position](JointPos.png)
+<img src="JointPos.png" alt="Joint Position" width="420" />
 
 ---
 
 ## GUI
 
-![GUI](GUI.png) 
+<img src="GUI.png" alt="GUI" width="420" />
 ---  
 
 ## Workspace (Reachable Volume)
 
-![Workspace 1](workspace1.png)
+<img src="workspace1.png" alt="Workspace 1" width="420" />
 
-![Workspace 2](workspace2.png)
+<img src="workspace2.png" alt="Workspace 2" width="420" />
 
-![Workspace 3](workspace3.png)
+<img src="workspace3.png" alt="Workspace 3" width="420" />
 
-![Workspace 4](workspace4.png)
+<img src="workspace4.png" alt="Workspace 4" width="420" />
 
 ---

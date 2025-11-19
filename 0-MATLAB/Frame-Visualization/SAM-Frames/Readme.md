@@ -4,37 +4,39 @@ Reference images for the 6-Axis Manipulator visualization.
 
 Order: base to end effector, then assembled block at the end.
 
+<!-- markdownlint-disable MD033 -->
+
 ## Base
 
-![Base](./Base.png)
+<img src="./Base.png" alt="Base" width="420" />
 
 ## Shoulder
 
-![Shoulder](./shoulder.png)
+<img src="./shoulder.png" alt="Shoulder" width="420" />
 
 ## Elbow
 
-![Elbow](./elbow.png)
+<img src="./elbow.png" alt="Elbow" width="420" />
 
 ## Wrist
 
-![Wrist](./wrist.png)
+<img src="./wrist.png" alt="Wrist" width="420" />
 
 ## Wrist 2
 
-![Wrist 2](./wrist2.png)
+<img src="./wrist2.png" alt="Wrist 2" width="420" />
 
 ## End Effector
 
-![End Effector](./EndEffector.png)
+<img src="./EndEffector.png" alt="End Effector" width="420" />
 
 ## Main Block Assembly
 
-![Main Block Assembly](./main-block.png)
+<img src="./main-block.png" alt="Main Block Assembly" width="420" />
 
 ## Final Block View
 
-![Block View](./blockSAM.png)
+<img src="./blockSAM.png" alt="Block View" width="420" />
 
 ---
 Last updated: 18 Nov 2025

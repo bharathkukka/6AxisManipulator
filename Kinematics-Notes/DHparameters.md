@@ -1,9 +1,11 @@
 
 ## *Linear Diagram*
 
-![Free body Diagram](https://github.com/bhaarath22/6AxisManipulator/blob/1c44f4b05553427278d6e6f6ebbd0bd7ed504e72/Data/Frame%20arrangement%202.jpeg)
+<!-- markdownlint-disable MD033 -->
+
+<img src="https://github.com/bhaarath22/6AxisManipulator/blob/1c44f4b05553427278d6e6f6ebbd0bd7ed504e72/Data/Frame%20arrangement%202.jpeg?raw=1" alt="Free body Diagram" width="420" />
   ## *Projection of {6} on {0}*
-![Position](https://github.com/bhaarath22/6AxisManipulator/blob/8ab5424e95ddc74ad68448610bd8e0c1f5eb9b1b/Data/Frame%20arrangement.jpeg)
+<img src="https://github.com/bhaarath22/6AxisManipulator/blob/8ab5424e95ddc74ad68448610bd8e0c1f5eb9b1b/Data/Frame%20arrangement.jpeg?raw=1" alt="Position" width="420" />
 
 
 # **Denavit-Hartenberg**(DH) parameters
@@ -21,7 +23,7 @@
 ## **Visualization of the Co-ordinate Frames**
 I used MATLAB (Robotics System Toolbox, Version 24.1, R2024a) to visualize the coordinate frames. This helped me view the joint axes in 3D and verify the correctness of my DH parameters.
 
-![out](https://github.com/bhaarath22/6AxisManipulator/blob/a0188b56417b50737ff09bc6f44f96b29cec6c82/Data/FA-Matlab-Final.png)
+<img src="https://github.com/bhaarath22/6AxisManipulator/blob/a0188b56417b50737ff09bc6f44f96b29cec6c82/Data/FA-Matlab-Final.png?raw=1" alt="Frame Visualization Output" width="420" />
 ----
 
 

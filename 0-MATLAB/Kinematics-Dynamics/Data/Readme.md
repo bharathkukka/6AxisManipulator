@@ -1,41 +1,41 @@
-
+<!-- markdownlint-disable MD033 -->
 
 ## FK-Transformation
 
-![FK-Transformation.png](./FK-Transformation.png)
+<img src="./FK-Transformation.png" alt="FK-Transformation" width="420" />
 
 
 
-![FK-Trans1.png](./FK-Trans1.png)
+<img src="./FK-Trans1.png" alt="FK-Trans1" width="420" />
 
 
 
-![FK-Trans2.png](./FK-Trans2.png)
+<img src="./FK-Trans2.png" alt="FK-Trans2" width="420" />
 
 ## Inverse Kinematics Newton Raphson Method
 
-![IK-NR.png](./IK-NR.png)
+<img src="./IK-NR.png" alt="IK-NR" width="420" />
 
 
 
-![IK-NR1.png](./IK-NR1.png)
+<img src="./IK-NR1.png" alt="IK-NR1" width="420" />
 
 
 
-![IK-NR2.png](./IK-NR2.png)
+<img src="./IK-NR2.png" alt="IK-NR2" width="420" />
 
 ## VelocityPropagation
 
-![VelocityPropagation.png](./VelocityPropagation.png)
+<img src="./VelocityPropagation.png" alt="VelocityPropagation" width="420" />
 
 
 
-![VP1.png](./VP1.png)
+<img src="./VP1.png" alt="VP1" width="420" />
 
 
 
-![VP2.png](./VP2.png)
+<img src="./VP2.png" alt="VP2" width="420" />
 
 
 
-![VP3.png](./VP3.png)
+<img src="./VP3.png" alt="VP3" width="420" />

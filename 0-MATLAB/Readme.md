@@ -9,49 +9,55 @@ Comprehensive MATLAB environment for a 6-DOF serial manipulator (revolute joints
 
 ### ***[here](Frame-Visualization)***
 
-![Base](Frame-Visualization/SAM-Frames/Base.png)
-  
+<!-- markdownlint-disable MD033 -->
 
- ![EndEffector](Frame-Visualization/SAM-Frames/EndEffector.png)
- ---
-![Block Model](Frame-Visualization/SAM-Frames/blockSAM.png) 
+<img src="Frame-Visualization/SAM-Frames/Base.png" alt="Base" width="420" />
 
- ![Main Block](Frame-Visualization/SAM-Frames/main-block.png)
 
----  
+ <img src="Frame-Visualization/SAM-Frames/EndEffector.png" alt="EndEffector" width="420" />
+ 
+---
+<img src="Frame-Visualization/SAM-Frames/blockSAM.png" alt="Block Model" width="420" /> 
 
-## Kinematics-Dynamics 
+ <img src="Frame-Visualization/SAM-Frames/main-block.png" alt="Main Block" width="420" />
+
+---
+
+## Kinematics-Dynamics
+
 ### ***[here](Kinematics-Dynamics)***
 
 ## Forward Kinematics
-![FK Transformation](Kinematics-Dynamics/Data/FK-Transformation.png) 
+<img src="Kinematics-Dynamics/Data/FK-Transformation.png" alt="FK Transformation" width="420" />
 
-![FK Trans 2](Kinematics-Dynamics/Data/FK-Trans2.png) 
-  
-  ---  
-  ## Inverse Kinematics
-![IK NR](Kinematics-Dynamics/Data/IK-NR.png)  
-![IK NR2](Kinematics-Dynamics/Data/IK-NR2.png) 
+<img src="Kinematics-Dynamics/Data/FK-Trans2.png" alt="FK Trans 2" width="420" />
 
----  
+---
+
+## Inverse Kinematics
+<img src="Kinematics-Dynamics/Data/IK-NR.png" alt="IK NR" width="420" />  
+<img src="Kinematics-Dynamics/Data/IK-NR2.png" alt="IK NR2" width="420" />
+
+---
+
 ## Velocity Propagation
-![Velocity Propagation](Kinematics-Dynamics/Data/VelocityPropagation.png) 
+<img src="Kinematics-Dynamics/Data/VelocityPropagation.png" alt="Velocity Propagation" width="420" />
 
-![VP3](Kinematics-Dynamics/Data/VP3.png)
+<img src="Kinematics-Dynamics/Data/VP3.png" alt="VP3" width="420" />
 
-## Robot-Visualization. 
+## Robot-Visualization.
 ### ***[here](Robot-Visualization)***
 
-![JointPos](Robot-Visualization/RobotJointVis/JointPos.png)
+<img src="Robot-Visualization/RobotJointVis/JointPos.png" alt="JointPos" width="420" />
 
-![JointVis2](Robot-Visualization/RobotJointVis/JointVis2.png)
+<img src="Robot-Visualization/RobotJointVis/JointVis2.png" alt="JointVis2" width="420" />
 ## GUI 
-![GUI](Robot-Visualization/RobotJointVis/GUI.png) 
+<img src="Robot-Visualization/RobotJointVis/GUI.png" alt="GUI" width="420" />
 
 ## Workspace
-![Workspace3](Robot-Visualization/RobotJointVis/workspace3.png)  
+<img src="Robot-Visualization/RobotJointVis/workspace3.png" alt="Workspace3" width="420" />
 
-![Workspace4](Robot-Visualization/RobotJointVis/workspace4.png)
+<img src="Robot-Visualization/RobotJointVis/workspace4.png" alt="Workspace4" width="420" />
 
 
 ### Key Scripts

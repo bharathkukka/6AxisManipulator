@@ -4,6 +4,8 @@ I built this MATLAB mini-toolkit to visualize and experiment with a 6-DOF serial
 
 ---
 
+<!-- markdownlint-disable MD033 -->
+
 ## `SAM_Robot.m` 
 [Code Here](SAM_Robot.m) 
 
@@ -21,7 +23,7 @@ Use case: fast manual experimentation without GUI overhead; great for adjusting 
 
 Image:
 
-[![Teach Mode / Sandbox](RobotJointVis/JointVis2.png)](RobotJointVis/RobotJointVisualization.mov)
+<a href="RobotJointVis/RobotJointVisualization.mov"><img src="RobotJointVis/JointVis2.png" alt="Teach Mode / Sandbox" width="420" /></a>
 
 
 ---
@@ -42,7 +44,7 @@ Why manual FK? It’s toolbox-agnostic: no Robotics Toolbox required for FK here
 
 Image:
 
-[![Reachable Workspace Scatter](RobotJointVis/workspace4.png)](RobotJointVis/RobotJointVisualization.mov)
+<a href="RobotJointVis/RobotJointVisualization.mov"><img src="RobotJointVis/workspace4.png" alt="Reachable Workspace Scatter" width="420" /></a>
 
 
 ---
@@ -63,7 +65,7 @@ Key toolbox calls: `fkine`, `plot`, `ikine`, plus user interface callbacks gener
 
 Image:
 
-[![GUI Forward/Inverse Kinematics](RobotJointVis/GUI.png)](RobotJointVis/RobotJointVisualization.mov)
+<a href="RobotJointVis/RobotJointVisualization.mov"><img src="RobotJointVis/GUI.png" alt="GUI Forward/Inverse Kinematics" width="420" /></a>
 
 ---
 

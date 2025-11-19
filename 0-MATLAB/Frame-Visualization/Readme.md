@@ -2,6 +2,8 @@
 
 This folder documents and demonstrates how my 6-DOF manipulator model is constructed and visualized using MATLAB's Robotics System Toolbox. The focus is on kinematic definition (DH parameters) and basic visualization (frames vs solid link approximations) plus optional export to Simscape Multibody.
 
+<!-- markdownlint-disable MD033 -->
+
 ## Files
 
 | File / Folder | Purpose |
@@ -43,7 +45,7 @@ Adjust angles at runtime; link lengths/offsets define structural geometry.
 * Calls `show(myRobot)` to visualize.
 * Uses `smimport(myRobot)` to generate a Simscape Multibody model (opens a new model with blocks for each rigid body).
 
-![Base Frame Visualization](SAM-Frames/Base.png)
+<img src="SAM-Frames/Base.png" alt="Base Frame Visualization" width="420" />
 
 ### `SAM_Visualization_Frames.m`
 
@@ -53,7 +55,7 @@ Adjust angles at runtime; link lengths/offsets define structural geometry.
 * Good for verifying DH frame alignment.
 
 
-![End Effector Frame Visualization](SAM-Frames/EndEffector.png)
+<img src="SAM-Frames/EndEffector.png" alt="End Effector Frame Visualization" width="420" />
 
 ### `SAM_Visualization_Blocks.m`
 
@@ -63,9 +65,9 @@ Adjust angles at runtime; link lengths/offsets define structural geometry.
 * Useful for presentation-quality static visualization.
 
 
-![Block Model Visualization](SAM-Frames/blockSAM.png)
+<img src="SAM-Frames/blockSAM.png" alt="Block Model Visualization" width="420" />
 
-![Main Block Assembly](SAM-Frames/main-block.png)
+<img src="SAM-Frames/main-block.png" alt="Main Block Assembly" width="420" />
 
 ## Usage
 
