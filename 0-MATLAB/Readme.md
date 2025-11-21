@@ -4,6 +4,8 @@ Comprehensive MATLAB environment for a 6-DOF serial manipulator (revolute joints
 
 > DH Convention used throughout: `[a_{i-1}, α_{i-1}, d_i, θ_i]` (Standard DH). Units: meters unless explicitly noted (some visualization block radii currently in mm-like scale).
 
+[Manipulator Visualization Video](https://drive.google.com/file/d/1tP6kaBXAC3IijLJ2Su2ogRSXueVRD3ka/view?usp=sharing)  
+
 ---
 ## Frame-Visualization 
 
@@ -48,9 +50,7 @@ Comprehensive MATLAB environment for a 6-DOF serial manipulator (revolute joints
 ## Robot-Visualization.
 ### ***[here](Robot-Visualization)***
 
-<img src="Robot-Visualization/RobotJointVis/JointPos.png" alt="JointPos" width="420" />
-[Vidoe](https://drive.google.com/file/d/1tP6kaBXAC3IijLJ2Su2ogRSXueVRD3ka/view?usp=sharing)
-
+<img src="Robot-Visualization/RobotJointVis/JointPos.png" alt="JointPos" width="420" />  
 <img src="Robot-Visualization/RobotJointVis/JointVis2.png" alt="JointVis2" width="420" />
 ## GUI 
 <img src="Robot-Visualization/RobotJointVis/GUI.png" alt="GUI" width="420" />
