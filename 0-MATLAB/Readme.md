@@ -49,6 +49,7 @@ Comprehensive MATLAB environment for a 6-DOF serial manipulator (revolute joints
 ### ***[here](Robot-Visualization)***
 
 <img src="Robot-Visualization/RobotJointVis/JointPos.png" alt="JointPos" width="420" />
+[Vidoe](https://drive.google.com/file/d/1tP6kaBXAC3IijLJ2Su2ogRSXueVRD3ka/view?usp=sharing)
 
 <img src="Robot-Visualization/RobotJointVis/JointVis2.png" alt="JointVis2" width="420" />
 ## GUI 
