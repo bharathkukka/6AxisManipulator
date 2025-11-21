@@ -83,7 +83,10 @@ This project is extension of my previous project [4-Axis Manipulator](https://gi
 ### Joint Views
 
 <img src="0-MATLAB/Robot-Visualization/RobotJointVis/JointVis2.png" alt="Joint Visualization" width="420" />
-<img src="0-MATLAB/Robot-Visualization/RobotJointVis/JointPos.png" alt="Joint Position" width="420" />
+<img src="0-MATLAB/Robot-Visualization/RobotJointVis/JointPos.png" alt="Joint Position" width="420" />    
+
+### ***watch video***
+[watch Video](https://drive.google.com/file/d/1tP6kaBXAC3IijLJ2Su2ogRSXueVRD3ka/view?usp=sharing)
 
 ### GUI
 
