@@ -1,4 +1,4 @@
-# 6-Axis Manipulator
+# *6-Axis Manipulator*
 
 *Timeline: February 2025 - Present*
 
