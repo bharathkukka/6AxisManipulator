@@ -4,7 +4,7 @@
 
 <!-- markdownlint-disable MD033 -->
 
-## Project Overview
+## *Project Overview*
 
 Welcome to my 6-Axis Manipulator project! This is an in-depth analysis of how to build a robotic manipulator from the ground up. I began this project from scratch with emphasis on every part of designing, constructing, and programming the manipulator.
 
