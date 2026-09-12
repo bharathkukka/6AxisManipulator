@@ -1,6 +1,6 @@
 # *6-Axis Manipulator*
 
-*Timeline: February 2025 - Present*
+*Timeline: February 2025 - December 2025*
 
 <!-- markdownlint-disable MD033 -->
 
